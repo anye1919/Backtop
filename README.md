@@ -35,4 +35,21 @@ window.onload = function() {
 		}, 30);
 	};
 };
+
+ var initAppView = function() {
+     var fromType = getParameter("fromType");
+     if (fromType.indexOf("app") > -1 && window.location.href.indexOf('/page/game_') > -1) {
+         var timer = setInterval(function() {
+             var header = document.getElementsByTagName('header')[0];
+             var footer = document.getElementsByTagName('footer')[0];
+             if (header) {
+                 header.style.display = 'none';
+             }
+             if (footer) {
+                 footer.style.display = 'none';
+                 clearInterval(timer);
+             }
+         }, 1)
+     }
+   };
 ```
